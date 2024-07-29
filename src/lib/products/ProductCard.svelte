@@ -1,4 +1,7 @@
 <script>
+  /**
+   * Product represent the object of product
+  */
   export let product = {};
 </script>
 <div

@@ -1,3 +1,20 @@
+
+<script>
+
+  /**
+   * Gets the id of the dropdown menu
+   * onClick it displays the menu & hides it
+   */
+  const toggleNavbar = () => {
+    const dropDown = document.getElementById("navbar-dropdown");
+    dropDown.classList.contains("hidden")
+      ? dropDown.classList.remove("hidden")
+      : dropDown.classList.add("hidden");
+  };
+
+</script>
+
+
 <header class="sticky z-50 top-0">
   <nav class="bg-gray-500 border-gray-200">
     <div
@@ -14,6 +31,7 @@
         </button>
       </button>
       <button
+      on:click={toggleNavbar}
         data-collapse-toggle="navbar-default"
         type="button"
         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
@@ -84,7 +102,7 @@
 
           <li>
             <button
-              to="login"
+              
               class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
             >
               Login
