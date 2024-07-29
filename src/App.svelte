@@ -1,12 +1,12 @@
 <script>
   
-  import Header from './lib/Header.svelte'
+import Home from './lib/pages/Home.svelte';
   import ProductList from './lib/products/ProductList.svelte'
 </script>
 
 <main>
   
-  <Header/>
+  <Home/>
   <div>
     <ProductList/>
   </div>
