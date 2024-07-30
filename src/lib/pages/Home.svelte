@@ -7,7 +7,7 @@
 
 <div>
     <Header/>
-    <main>
+    <main class="mt-[30px]">
         <ProductList/>
 
     </main>
