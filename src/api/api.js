@@ -9,9 +9,9 @@ export const getCategories = async () => {
       );
     }
     const data = await response.json();
-    return { response: data };
+    return data ;
   } catch (error) {
-    return { error: error };
+    return error;
   }
 };
 

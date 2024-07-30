@@ -1,7 +1,6 @@
 <script>
-    import Header from "../Header.svelte";
+    import Header from "../Header.svelte"
     import ProductList from "../products/ProductList.svelte";
-     
 
 </script>
 

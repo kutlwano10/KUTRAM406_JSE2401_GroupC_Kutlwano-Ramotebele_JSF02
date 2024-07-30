@@ -3,6 +3,8 @@
   import { fetchProducts } from '../../api/api';
   import ProductCard from "./ProductCard.svelte";
   import Sort from "../sort.svelte";
+  import Filter from "../Filter.svelte";
+  import {getCategories} from '../../api/api';
 
   let products = []
 
@@ -37,10 +39,48 @@
   }
 
 
+  /**
+   * Filtering Products
+  */
+  let filteredProducts = [...products];
+  let filterItem = "All categories";
+  let searchTerm = "";
+  let categories = ["All categories"]; // Initialize with "All categories"
+
+  // Fetch categories on component mount
+  onMount(async () => {
+    const data = await getCategories();
+    categories = ["All categories", ...data];
+  });
+
+  function handleFilter(category) {
+    filterItem = category;
+    applyFilters();
+  }
+
+  function handleSearch(event) {
+    searchTerm = event.target.value;
+    applyFilters();
+  }
+
+  function applyFilters() {
+    filteredProducts = products.filter((product) => {
+      const matchesCategory = filterItem === "All categories" || product.category === filterItem;
+      const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }
+
+
 </script>
 
-<div class="grid justify-center">
+<div class=" md:flex gap-5 justify-center">
+  <Filter {filterItem} {categories} {searchTerm} {handleFilter} {handleSearch} />
   <Sort {sorting} {handleSort} />
+</div>
+
+<div class="grid justify-center">
+  
   <div
     class="lg:max-h-[130rem] max-w-xl mx-auto grid gap-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 items-center lg:max-w-none my-4"
   >
