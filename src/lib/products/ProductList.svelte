@@ -75,7 +75,7 @@
 </script>
 
 <div class=" md:flex gap-5 justify-center">
-  <Filter {filterItem} {categories} {searchTerm} {handleFilter} {handleSearch} />
+  <Filter  {filterItem} {categories} {searchTerm} {handleFilter} {handleSearch} />
   <Sort {sorting} {handleSort} />
 </div>
 
